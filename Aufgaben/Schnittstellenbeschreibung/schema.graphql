@@ -1,0 +1,64 @@
+type Buch {
+  id: ID!
+  titel: String!
+  beschreibung: String
+  veroeffentlichungsjahr: Int!
+  autoren: [Autor!]!
+}
+
+type Autor {
+  id: ID!
+  name: String!
+  geburtsdatum: String
+  buecher: [Buch!]!
+}
+
+type Query {
+  """
+  Abrufen aller Bücher: Gibt eine Liste aller Bücher in der Bibliothek zurück.
+  """
+  buecher: [Buch!]!
+
+  """
+  Abrufen eines Buches nach ID: Gibt Detailinformationen zu einem Buch zurück.
+  """
+  buch(id: ID!): Buch
+
+  """
+  Abrufen aller Autoren: Gibt eine Liste aller Autoren zurück.
+  """
+  autoren: [Autor!]!
+
+  """
+  Abrufen eines Autors nach ID: Gibt Detailinformationen zu einem Autor zurück.
+  """
+  autor(id: ID!): Autor
+}
+
+type Mutation {
+  """
+  Erstellen eines neuen Buches: Fügt ein neues Buch hinzu.
+  Benötigt Titel, Jahr und die IDs der zugehörigen Autoren.
+  """
+  erstelleBuch(titel: String!, beschreibung: String, veroeffentlichungsjahr: Int!, autorenIDs: [ID!]!): Buch!
+
+  """
+  Aktualisieren eines Buches: Aktualisiert die Details eines bestehenden Buches.
+  """
+  aktualisiereBuch(id: ID!, titel: String, beschreibung: String, veroeffentlichungsjahr: Int): Buch
+
+  """
+  Löschen eines Buches: Entfernt ein Buch aus der Bibliothek.
+  """
+  loescheBuch(id: ID!): ID
+
+  """
+  Erstellen eines neuen Autors: Fügt einen neuen Autor hinzu.
+  """
+  erstelleAutor(name: String!, geburtsdatum: String): Autor!
+
+  """
+  Aktualisieren eines Autors: Aktualisiert die Details eines bestehenden Autors.
+  """
+  aktualisiereAutor(id: ID!, name: String, geburtsdatum: String): Autor
+}
