@@ -7,7 +7,7 @@ Für den ersten Schritt wähle ich GraphQL. Es eignet sich oft sehr gut für API
 ## Aufgabe 2: Umwandlung in eine GraphQL-Schnittstellendefinition
 Basierend auf der textlichen Beschreibung habe ich die Anforderungen in das GraphQL Schema Definition Language (SDL) Format umgewandelt. Die Definition umfasst die Datentypen Buch und Autor sowie die notwendigen Query- (Lesezugriffe) und Mutation-Operationen (Schreib-, Änderungs- und Löschzugriffe).
 
-[Link zum Schema](Schema.graphql)
+[Link zum Schema](schema.graphql)
 
 ### Erläuterungen zum Schema:
 
